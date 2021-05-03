@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Header from './components/Header';
-//import Movies from './components/Movies';
+import Movies from './components/Movies';
 
 function App() {
     
@@ -12,7 +12,7 @@ function App() {
       <>
       <Header />
       <Switch>
-        <Route exact path='/' />
+        <Route exact path='/' component={Movies} />
       </Switch>
       </>
     );

@@ -20,7 +20,7 @@ const Header = props => {
                 <div className="main-navigation">
                     <button type="button" className="menu-toggle"><i className="fa fa-bars"></i></button>
                     <ul className="menu">
-                        <li className="menu-item current-menu-item"><NavLink to="index.html">Home</NavLink></li>
+                        <li className="menu-item current-menu-item"><NavLink to="/">Home</NavLink></li>
                         <li className="menu-item"><NavLink to="about.html">About</NavLink></li>
                         <li className="menu-item"><NavLink to="review.html">Movie reviews</NavLink></li>
                         <li className="menu-item"><NavLink to="joinus.html">Join us</NavLink></li>

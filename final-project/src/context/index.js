@@ -91,7 +91,7 @@
                     reviews: reviews 
                     };
                 console.log(movieDetails);
-              await setMovieDetails(movieDetails);  
+                setMovieDetails(movieDetails);  
             } catch (error) {
                 console.log(error);
             }

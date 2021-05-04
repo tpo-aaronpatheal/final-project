@@ -51,7 +51,7 @@ const MovieDetail = () => {
                                     <li><strong>Rating:</strong> 
                                         <span className="starring"><span><strong> {value.movieDetails.rating}</strong> out of 10</span></span>
                                     </li>
-                                    <li><strong>Length:</strong> {value.movieDetails.runningTime}</li>
+                                    <li><strong>Length:</strong> {`${value.movieDetails.runningTime} Minutes`}</li>
                                 </ul>
                                 <ul className="starring">
                                     <li><strong>Director:</strong> {value.movieDetails.director} </li>

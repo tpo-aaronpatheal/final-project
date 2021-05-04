@@ -29,7 +29,7 @@ const Movies = () => {
 				<div className="container">
 					<div className="page">
 						<div className="row">
-							<div className="col-md-9">
+							<div className="col-md-12">
 								<div className="slider">
 									<ul className="slides">
                                     <motion.div
@@ -39,7 +39,7 @@ const Movies = () => {
                                     >  
                                         {value.movies.map(movie => { 
                                             return (
-                                                <li className=".col-lg-4" key={movie.id}>
+                                                <li className="col-md-4" key={movie.id}>
                                                     <NavLink to={`/${movie.id}`}>
                                                     <h2>{movie.title}</h2>
                                                     <a href="#">

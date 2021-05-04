@@ -58,7 +58,7 @@ const MovieDetail = () => {
                                     <li><strong>Stars:</strong> {value.movieDetails.actors.map(actor => { return `${actor} | `})} </li> 
                                 </ul>
                                 <hr />
-                                <div class="entry-content">
+                                <div className="entry-content">
                                     <h3>Reviews:</h3>
                                     {value.movieDetails.reviews.length > 0 ? 
                                         value.movieDetails.reviews.map(review => {

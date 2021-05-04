@@ -100,12 +100,22 @@
     }, [path])
 
 
+    const [searchResults, setSearchResults] = useState([{
+        id: '',
+        title: '',
+        year: '',
+        image: '',
+    }]);
+
+
     const value = {
         movies,
         movieDetails,
+        searchResults,
         actions: {
             setMovies,
             setMovieDetails,
+            setSearchResults,
         }
     }
 

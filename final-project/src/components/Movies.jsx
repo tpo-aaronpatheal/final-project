@@ -23,6 +23,20 @@ const Movies = () => {
 
     const { value } = useContext(Context);
 
+    let d = new Date();
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"];
 
     return (
         <main className="main-content">
@@ -52,9 +66,65 @@ const Movies = () => {
                                             )
                                         })}
                                     </motion.div>
-									</ul>
+									</ul>                                   
 								</div>
 							</div>
+                            <div className="row">
+							<div className="col-md-4">
+                            <motion.div
+                                        variants={courseCardVariant}
+                                        initial="hidden"
+                                        animate="show"
+                                    >  
+								<h2 className="section-title">{months[d.getMonth()]} premiere</h2>
+								<p>Popular movies premiering in {months[d.getMonth()]}:</p>
+								<ul className="movie-schedule">
+									{value.upcoming.slice(0,4).map(movie => {
+											return <li key={movie.id}>
+												<div className="date">{movie.release.substring(5)}</div>
+												<h2 className="entry-title"><NavLink to={`/${movie.id}`}>{movie.title}</NavLink></h2>
+											</li>	
+									})}
+								</ul>
+                                </motion.div>
+							</div>
+							<div className="col-md-4">
+                            <motion.div
+                                        variants={courseCardVariant}
+                                        initial="hidden"
+                                        animate="show"
+                                    >  
+								<h2 className="section-title">{months[d.getMonth() + 1]} premiere</h2>
+								<p>Popular movies premiering in {months[d.getMonth() + 1]}:</p>
+								<ul className="movie-schedule">
+									{value.upcoming.slice(4,8).map(movie => {
+												return <li key={movie.id}>
+													<div className="date">{movie.release.substring(5)}</div>
+													<h2 className="entry-title"><NavLink to={`/${movie.id}`}>{movie.title}</NavLink></h2>
+												</li>	
+										})}
+								</ul>
+                                </motion.div>
+							</div>
+							<div className="col-md-4">
+                            <motion.div
+                                        variants={courseCardVariant}
+                                        initial="hidden"
+                                        animate="show"
+                                    >
+								<h2 className="section-title">{months[d.getMonth() + 2]} premiere</h2>
+								<p>Popular movies premiering in {months[d.getMonth() + 2]}:</p>  
+								<ul className="movie-schedule">
+									{value.upcoming.slice(8,12).map(movie => {
+										return <li key={movie.id}>
+											<div className="date">{movie.release.substring(5)}</div>
+											<h2 className="entry-title"><NavLink to={`/${movie.id}`}>{movie.title}</NavLink></h2>
+										</li>	
+									})}
+								</ul>
+                                </motion.div>
+							</div>
+						</div>
                         </div>
                     </div>
                  </div>

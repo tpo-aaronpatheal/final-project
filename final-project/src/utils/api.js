@@ -40,5 +40,10 @@ const apiKey = process.env.REACT_APP_API_KEY;
      getSearchResults: async(search) => {
          const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${search}&page=1&include_adult=false}`);
          return response;
+     },
+
+     getUpcomingMovies: async(firstDay, lastDay) => {
+         const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&page=1&primary_release_date.gte=${firstDay}&primary_release_date.lte=${lastDay}&with_release_type=3%7C2`);
+         return response;
      }
  }

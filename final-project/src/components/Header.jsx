@@ -27,13 +27,15 @@ const Header = () => {
             }
             value.actions.setSearchResults(resultsArr);
             history.push(`/search/${searchInput.current.value}`);
+            searchInput.current.value=null;
     }
 
+    
 
     return (
         <header className="site-header">
             <div className="container">
-                <NavLink to="index.html" id="branding">
+                <NavLink to="/" id="branding">
                     <img src="logo.png" alt="" className="logo"></img>
                     <div className="logo-copy">
                         <h1 className="site-title">A-Money Productions</h1>

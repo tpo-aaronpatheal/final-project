@@ -10,7 +10,9 @@ const Footer = () => {
                 <div className="col-md-2">
                     <div className="widget">
                         <h3 className="widget-title">About Us</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia tempore vitae mollitia nesciunt saepe cupiditate</p>
+                        <ul className="no-bullet">
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia tempore vitae mollitia nesciunt saepe cupiditate</li>
+                        </ul>
                     </div>
                 </div>
                 <div className="col-md-2">

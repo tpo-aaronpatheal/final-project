@@ -1544,14 +1544,15 @@ ul.arrow {
   .movie-schedule .date, .movie-schedule .entry-title {
     display: inline-block; }
   .movie-schedule .date {
-    width: 80px;
+    width: 70px;
     padding: 5px 10px;
     text-align: center;
+    color: black;
     font-size: 12px;
-    font-size: 0.8em;
-    border: 1px solid #d7d8da;
+    font-size: 1.0em;
+    border: 3px solid black;
     border-radius: 3px;
-    margin-right: 10px; }
+    margin-right: 5px; }
   .movie-schedule .entry-title {
     font-size: 15px;
     font-size: 1em;

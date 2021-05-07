@@ -241,7 +241,9 @@ address {
   font-style: normal; }
 
 p {
-  margin-top: 0; }
+  margin-top: 0; 
+  color: black;
+  font-weight: 700}
 
 form input, form textarea, form select {
   outline: none;
@@ -384,7 +386,7 @@ form textarea {
   border-bottom: 1px solid #ebebeb; }
   .breadcrumbs a {
     font-weight: 400;
-    color: #9ea1a6; }
+    color: black; }
     .breadcrumbs a:after {
       content: " ";
       width: 8px;
@@ -405,7 +407,7 @@ ul.arrow {
     background: url(images/arrow.png) no-repeat 0 center;
     margin-bottom: 5px; }
     ul.arrow li a {
-      color: #84878d;
+      color:black;
       -webkit-transition: .3s ease;
               transition: .3s ease; }
       ul.arrow li a:hover {
@@ -1529,7 +1531,8 @@ ul.arrow {
 .section-title {
   font-size: 30px;
   font-size: 2em;
-  font-weight: 300; }
+  font-weight: 300; 
+  color: #ffaa3c}
 
 .movie-schedule {
   list-style: none; }
@@ -1566,7 +1569,8 @@ ul.arrow {
 .leading {
   font-size: 26px;
   font-size: 1.7333333333em;
-  font-weight: 300; }
+  font-weight: 750; 
+  color: black}
 
 .page figure {
   margin-bottom: 30px; }

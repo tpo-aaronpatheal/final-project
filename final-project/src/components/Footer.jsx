@@ -67,7 +67,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="colophon">Copyright 2014 Company name, Designed by Themezy. All rights reserved</div>
+            <div className="colophon">Copyright 2014 A-Money Productions, Designed by Themezy. All rights reserved</div>
         </div> 
     </footer>
     )

@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Movies from './components/Movies';
 import SearchResults from './components/SearchResults';
 import MovieDetail from './components/MovieDetail';
+import About from './components/About';
 //import Context from './context';
 
 
@@ -17,6 +18,7 @@ function App() {
       <>
       <Header />
       <Switch>
+        <Route exact path='/about' component={About} />
         <Route exact path='/' component={Movies} />
         <Route exact path={'/:id'} component={MovieDetail} />
         <Route path='/search/' component={SearchResults} />

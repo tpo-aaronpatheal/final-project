@@ -138,7 +138,7 @@
 			let finalFirstDay = new Date(d.getFullYear(), d.getMonth() + 2, 1).toLocaleDateString("en-ZA", options).replaceAll('/','-');
 			let finalLastDay = new Date(d.getFullYear(), d.getMonth() + 3 , 0).toLocaleDateString("en-ZA", options).replaceAll('/','-');
 			try {
-                //api calls to obtain list of 4 movies from each of the 3 upciming months. 
+                //api calls to obtain list of 4 movies from each of the 3 upcoming months. 
 				let response = await api.getUpcomingMovies(firstDay, lastDay);
 					for (let i = 0; i < 4; i++) {
 						let movie = {
@@ -175,17 +175,20 @@
     	getPremiers();
     }, [])
 
+    const [buttonCount, setButtonCount] = useState();
 
     const value = {
         movies,
         movieDetails,
         searchResults,
         upcoming,
+        buttonCount,
         actions: {
             setMovies,
             setMovieDetails,
             setSearchResults,
             setUpcoming,
+            setButtonCount,
         }
     }
 

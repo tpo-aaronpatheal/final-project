@@ -3,19 +3,22 @@ import Context from '../context';
 import { NavLink, useHistory } from 'react-router-dom';
 import '../styles/style.css';
 import api from '../utils/api';
-
+//import { useSpring, animated } from 'react-spring';
 
 
 const Header = () => {
+
+    //const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
 
     const searchInput = useRef('');
     const history = useHistory();
     const { value } = useContext(Context);
 
+
     const onSubmit = async (e) => {
         e.preventDefault();
             let resultsArr = [];
-            let response = await api.getSearchResults(searchInput.current.value);
+            let response = await api.getSearchResults(searchInput.current.value, 1);
             for(let i = 0; i < response.data.results.length; i++){
                 let movieResults = {
                     id: response.data.results[i].id,
@@ -26,6 +29,7 @@ const Header = () => {
                 resultsArr.push(movieResults)
             }
             value.actions.setSearchResults(resultsArr);
+
             history.push(`/search/${searchInput.current.value}`);
             searchInput.current.value=null;
     }
@@ -57,7 +61,6 @@ const Header = () => {
                         <button ><i className="fa fa-search"/>Find</button>
                     </form>
                 </div>
-
                 <div className="mobile-navigation"></div>
         </div>
     </header>

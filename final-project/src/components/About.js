@@ -62,7 +62,7 @@ const About = () => {
                                         <li><NavLink to="#">In Theaters</NavLink></li> 
                                         <li><NavLink to="#">Fan Favorites</NavLink></li>
                                         <li><NavLink to="#">Your Account</NavLink></li> 
-                                        <li><NavLink to="#">Sign in</NavLink></li>
+                                        <li><NavLink to="/signIn">Sign in</NavLink></li>
                                     </ul>
                                 </div>
                             </div>

@@ -4,8 +4,19 @@ import Context from '../context';
 import api from '../utils/api.js';
 import ValidationError from './ValidationError';
 import '../styles/style.css';
+import {useSpring, animated } from 'react-spring';
 
 const UserSignUp = () => {
+
+     const fade = useSpring({
+         from: {
+             opacity: 0
+         },
+         to: {
+             opacity: 1
+         },
+        config: { duration: 3000 }
+     });
 
     const { value } = useContext(Context);
     const history = useHistory();
@@ -51,7 +62,7 @@ const UserSignUp = () => {
 
     return (
         <>
-           <div className="container text-center">
+           <animated.div className="container" style={fade} >
                         <div className="col-md-4 col-md-offset-4">
                             <h2 id="uc-heading">Sign Up</h2>
                             {value.validationError ? <ValidationError /> : null}
@@ -73,7 +84,7 @@ const UserSignUp = () => {
                             </form>
                             <p className="txt-footer">Already have a user account? <br/>Click here to <NavLink className="signup-link" to='/signin'>sign in!</NavLink></p>
                         </div>
-                    </div>
+            </animated.div>
                 
         </> 
     );

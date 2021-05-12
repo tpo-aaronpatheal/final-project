@@ -2,9 +2,20 @@ import React, { useContext, useRef, useEffect } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import Context from '../context';
 import api from '../utils/api.js';
+import {useSpring, animated } from 'react-spring';
 
 
 const UserSignIn = props => {
+
+    const fade = useSpring({
+        from: {
+            opacity: 0
+        },
+        to: {
+            opacity: 1
+        },
+       config: { duration: 3000 }
+    });
 
   const history = useHistory();
   // send to the prev path if it was passed // otherwise send home //
@@ -45,7 +56,7 @@ const UserSignIn = props => {
   return (
     <>
       <main>
-        <div className="form--centered">
+        <animated.div className="form--centered" style={fade} >
           <h2 id="uc-heading">Sign In</h2>
           {value.error ? <h3 id="error">{value.error}</h3> : null}
           <form onSubmit={onSubmit}>
@@ -59,7 +70,7 @@ const UserSignIn = props => {
             </div>
           </form>
           <p className="txt-footer">Don't have a user account? <br/> Click here to <NavLink className="signup-link" to="/signup">sign up</NavLink>!</p>
-        </div>
+        </animated.div>
       </main>
     </>
   );

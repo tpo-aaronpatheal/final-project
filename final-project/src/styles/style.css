@@ -1739,11 +1739,6 @@ ul.arrow {
 
 
     /*SignUp*/
-    .form--centered {
-      max-width: 50%;
-      margin: 0 auto;
-      padding: 0 1rem;
-  }
 
   label {
     display: block;
@@ -1801,4 +1796,19 @@ ul.arrow {
     padding-top: 5%;
     margin-bottom: 0px;
   }
-  
+
+  .signinform {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .form--centered {
+    width: 450px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 25px;
+    align-self: center;
+    color: #ffaa3c;
+  }

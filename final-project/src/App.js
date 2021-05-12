@@ -10,6 +10,7 @@ import UserSignOut from './components/UserSignOut';
 import SearchResults from './components/SearchResults';
 import MovieDetail from './components/MovieDetail';
 import About from './components/About';
+import Television from './components/TV'
 //import Context from './context';
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route exact path='/signup' component={UserSignUp} />
         <Route exact path='/signout' component={UserSignOut} />
         <Route exact path='/about' component={About} />
+        <Route exact path='/tv' component={Television} />
         <Route exact path='/' component={Movies} />
         <Route exact path={'/:id'} component={MovieDetail} />
         <Route path='/search/' component={SearchResults} />

@@ -181,6 +181,37 @@
     const [buttonCount, setButtonCount] = useState();
 
 
+    const [tvShows, setTvShows] = useState([{
+        id: '',
+        name: '',
+        image: '',
+        overview: '',
+    }]);
+
+    //Get tv shows airing today
+    useEffect(() => {
+        let tvArr = [];
+        let getTvShows = async() => {
+            try{
+                let response = await api.getTvAiringToday();
+                for(let i = 0; i < 9; i++){
+                    let show = {
+                        id: response.data.results[i].id,
+                        name: response.data.results[i].name,
+                        image: response.data.results[i].poster_path,
+                        overview: response.data.results[i].overview,
+                    }
+                tvArr.push(show);
+                }
+                setTvShows(tvArr);
+            }catch(error){
+                console.log(error);
+            }
+        }
+        getTvShows();
+    }, [])
+
+
 
     //----------------- user authentication state -----------------// 
     const [user, setUser] = useState({
@@ -217,7 +248,6 @@
 
 
     // catch server/sql validation  errors
-
     const [validationError, setValidationError] = useState(null);
      //reset validation errors on path change
      useEffect(() => {
@@ -255,6 +285,7 @@
         error,
         validationError,
         user,
+        tvShows,
         actions: {
             setMovies,
             setMovieDetails,
@@ -265,6 +296,7 @@
             setValidationError,
             setError,
             setUser,
+            setTvShows,
         }
     }
 

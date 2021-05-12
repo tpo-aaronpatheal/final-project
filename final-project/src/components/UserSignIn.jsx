@@ -56,20 +56,24 @@ const UserSignIn = props => {
   return (
     <>
       <main>
-        <animated.div className="form--centered" style={fade} >
-          <h2 id="uc-heading">Sign In</h2>
-          {value.error ? <h3 id="error">{value.error}</h3> : null}
-          <form onSubmit={onSubmit}>
-            <label htmlFor="emailAddress">Email Address</label>
-            <input id="emailAddress" name="emailAddress" type="email" ref={emailInput} />
-            <label htmlFor="password">Password</label>
-            <input id="password" name="password" type="password" ref={passwordInput} />
-            <div className="buttonsDiv">
-              <button className="buttons" type="submit">Sign In</button>
-              <NavLink to="/"><button className="buttons">Cancel</button></NavLink>
-            </div>
-          </form>
-          <p className="txt-footer">Don't have a user account? <br/> Click here to <NavLink className="signup-link" to="/signup">sign up</NavLink>!</p>
+        <animated.div className="container" style={fade} >
+            <div className="col-md-4 col-md-offset-4">
+                <div className="form--centered">
+                    <h2 id="uc-heading">Sign In</h2>
+                    {value.error ? <h3 id="error">{value.error}</h3> : null}
+                    <form className="signinform" onSubmit={onSubmit}>
+                        <label htmlFor="emailAddress">Email Address</label>
+                        <input className="signinform" id="emailAddress" name="emailAddress" type="email" ref={emailInput} />
+                        <label htmlFor="password">Password</label>
+                        <input className="signinform" id="password" name="password" type="password" ref={passwordInput} />
+                        <div className="buttonsDiv">
+                        <button className="buttons" type="submit">Sign In</button>
+                        <NavLink to="/"><button className="buttons">Cancel</button></NavLink>
+                        </div>
+                    </form>
+                    <p className="txt-footer">Don't have a user account? <br/> Click here to <NavLink className="signup-link" to="/signup">sign up</NavLink>!</p>
+                </div>
+            </div>  
         </animated.div>
       </main>
     </>

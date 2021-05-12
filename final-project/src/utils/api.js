@@ -48,6 +48,11 @@ const url = 'http://localhost:5000/api/'
          return response;
      },
 
+     getTvAiringToday: async() => {
+        const response = await axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=${apiKey}&language=en-US&page=1-5`);
+        return response;
+     },
+
      getUser: async (path, email, password) => {
         const decodedPassword = atob(password);
         const response = await axios.get(`${url}${path}`, {

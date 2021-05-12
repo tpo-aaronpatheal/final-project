@@ -63,27 +63,29 @@ const UserSignUp = () => {
     return (
         <>
            <animated.div className="container" style={fade} >
-                        <div className="col-md-4 col-md-offset-4">
-                            <h2 id="uc-heading">Sign Up</h2>
-                            {value.validationError ? <ValidationError /> : null}
-                            <form className="form--centered" onSubmit={onSubmit}>
-                                <label htmlFor="firstName">First Name</label>
-                                <input id="firstName" name="firstName" type="text" ref={firstNameInput} />
-                                <label htmlFor="lastName">Last Name</label>
-                                <input id="lastName" name="lastName" type="text" ref={lastNameInput} />
-                                <label htmlFor="emailAddress">Email Address</label>
-                                <input id="emailAddress" name="emailAddress" type="email" ref={emailInput} />
-                                <label htmlFor="password">Password</label>
-                                <input id="password" name="password" type="password" onChange={validatePassword} ref={passwordInput} />
-                                <label htmlFor="confirmPassword">Confirm Password</label>
-                                <input id="confirmPassword" name="confirmPassword" type="password" onKeyUp={validatePassword} ref={confirmPasswordInput} />
-                                <div className="buttonsDiv">
-                                    <button className="buttons" type="submit">Sign Up</button>
-                                    <NavLink to="/"><button className="buttons">Cancel</button></NavLink>
-                                </div>
-                            </form>
+                <div className="col-md-4 col-md-offset-4">
+                    <div className="form--centered">
+                        <h2 id="uc-heading">Sign Up</h2>
+                        {value.validationError ? <ValidationError /> : null}
+                        <form className="signinform" onSubmit={onSubmit}>
+                            <label htmlFor="firstName">First Name</label>
+                            <input className="signinform" id="firstName" name="firstName" type="text" ref={firstNameInput} />
+                            <label htmlFor="lastName">Last Name</label>
+                            <input className="signinform" id="lastName" name="lastName" type="text" ref={lastNameInput} />
+                            <label htmlFor="emailAddress">Email Address</label>
+                            <input className="signinform" id="emailAddress" name="emailAddress" type="email" ref={emailInput} />
+                            <label htmlFor="password">Password</label>
+                            <input className="signinform" id="password" name="password" type="password" onChange={validatePassword} ref={passwordInput} />
+                            <label htmlFor="confirmPassword">Confirm Password</label>
+                            <input className="signinform" id="confirmPassword" name="confirmPassword" type="password" onKeyUp={validatePassword} ref={confirmPasswordInput} />
+                            <div className="buttonsDiv">
+                                <button className="buttons" type="submit">Sign Up</button>
+                                 <NavLink to="/"><button className="buttons">Cancel</button></NavLink>
+                            </div>
+                        </form>
                             <p className="txt-footer">Already have a user account? <br/>Click here to <NavLink className="signup-link" to='/signin'>sign in!</NavLink></p>
-                        </div>
+                    </div>
+                </div>
             </animated.div>
                 
         </> 

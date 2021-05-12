@@ -1,31 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, {useContext} from 'react';
+import { NavLink } from 'react-router-dom';
 import Context from '../context';
-import api from '../utils/api';
-import ReactPaginate  from 'react-paginate';
 import Paginate from '../components/Paginate'
 
 const SearchResults = () => {
 
     const { value } = useContext(Context);  
-
-     //let path = useLocation().pathname.substring(8);
-
-    //  let buttons = [];
-
-    //  useEffect( ()=> {
-    //      const pageCount = async () => {
-    //          let response = await api.getSearchResults(path, 1);
-    //          console.log(response.data.total_pages);
-    //          for(let i = 1; i < response.data.total_pages; i++ ){
-    //              buttons.push(i);
-    //          }
-            
-    //        setButtonCount();
-    //        console.log(buttonCount)
-    //      }
-    //      pageCount();
-    //  },[])
 
 
 

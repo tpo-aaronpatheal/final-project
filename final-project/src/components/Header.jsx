@@ -51,9 +51,14 @@ const Header = () => {
                     <ul className="menu">
                         <li className="menu-item current-menu-item"><NavLink to="/">Home</NavLink></li>
                         <li className="menu-item"><NavLink to="/about">About</NavLink></li>
-                        <li className="menu-item"><NavLink to="review.html">Movie reviews</NavLink></li>
-                        <li className="menu-item"><NavLink to="joinus.html">Join us</NavLink></li>
                         <li className="menu-item"><NavLink to="contact.html">Contact</NavLink></li>
+                        {value.user.authenticated ? <>
+                            <li className="menu-item"><NavLink to="/signout">Sign out</NavLink></li></>
+                            :
+                            <>
+                            <li className="menu-item"><NavLink to="/signup">Sign Up</NavLink></li>
+                            <li className="menu-item"><NavLink to="/signin">Sign In</NavLink></li></>
+                            }
                     </ul>
 
                     <form action='/search' onSubmit={onSubmit} className="search-form">
@@ -61,6 +66,11 @@ const Header = () => {
                         <button ><i className="fa fa-search"/>Find</button>
                     </form>
                 </div>
+                {value.user.authenticated ? <>
+                            <h4 className='welcome'>Welcome {value.user.userName}!</h4> </>
+                            :
+                            null
+                }
                 <div className="mobile-navigation"></div>
         </div>
     </header>

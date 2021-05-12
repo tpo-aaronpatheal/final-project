@@ -1,10 +1,13 @@
  import React, { useState, useEffect } from 'react';
- import { useLocation } from 'react-router-dom';
+ import { useLocation, useHistory } from 'react-router-dom';
  import api from '../utils/api';
+ import Cookies from 'js-cookie';
 
  const Context = React.createContext();
 
  export const ContextProvider = props => {
+
+    let history = useHistory()
 
     //get path to pass to API calls
     let path = useLocation().pathname.substring(1);
@@ -177,18 +180,91 @@
 
     const [buttonCount, setButtonCount] = useState();
 
+
+
+    //----------------- user authentication state -----------------// 
+    const [user, setUser] = useState({
+        authenticated: false,
+        id: '',
+        email: '',
+        userName: '',
+        password: '',
+    });
+
+    useEffect(() => {
+        const { authenticated, id, email, userName, password } = user;
+        if (authenticated) {
+            Cookies.set('loggedIn', authenticated, {expires: 1})
+            Cookies.set('userId', id, {expires: 1})
+            Cookies.set('username', userName, {expires: 1})
+            Cookies.set('email', email, {expires: 1});
+            Cookies.set('pass', password, {expires: 1});
+        }
+    }, [user])
+
+    useEffect(() => {
+        if (Cookies.get('loggedIn') === 'true') {
+            setUser({
+                authenticated: true,
+                id: parseInt(Cookies.get('userId')),
+                email: Cookies.get('email'),
+                userName: Cookies.get('username'),
+                password: Cookies.get('pass')
+            })
+        }
+    }, [])
+
+
+
+    // catch server/sql validation  errors
+
+    const [validationError, setValidationError] = useState(null);
+     //reset validation errors on path change
+     useEffect(() => {
+        setValidationError(null);
+    }, [path])
+
+    const [error, setError] = useState([]);
+    
+    const asyncHandler = async cb => {
+        try {
+            await cb()
+        } catch (error) {
+            const { response: { status, data, data: { errors } } } = error;
+            switch (status) {
+                case 400:
+                    setValidationError(errors);
+                    break;
+                case 401:
+                    setError(data);
+                    break;
+                default:
+                    history.push('/error');
+                    break;
+            }
+        }
+    }
+
+
     const value = {
         movies,
         movieDetails,
         searchResults,
         upcoming,
         buttonCount,
+        error,
+        validationError,
+        user,
         actions: {
             setMovies,
             setMovieDetails,
             setSearchResults,
             setUpcoming,
             setButtonCount,
+            asyncHandler,
+            setValidationError,
+            setError,
+            setUser,
         }
     }
 

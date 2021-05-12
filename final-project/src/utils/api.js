@@ -4,6 +4,7 @@
 require("dotenv").config();
 
 const apiKey = process.env.REACT_APP_API_KEY;
+const url = 'http://localhost:5000/api/'
 
 
  //API REQUESTS
@@ -45,5 +46,29 @@ const apiKey = process.env.REACT_APP_API_KEY;
      getUpcomingMovies: async(firstDay, lastDay) => {
          const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&page=1&primary_release_date.gte=${firstDay}&primary_release_date.lte=${lastDay}&with_release_type=3%7C2`);
          return response;
-     }
+     },
+
+     getUser: async (path, email, password) => {
+        const decodedPassword = atob(password);
+        const response = await axios.get(`${url}${path}`, {
+            auth: {
+                username: email,
+                password: decodedPassword
+            }
+        });
+        return response;
+    },
+
+     postCreateUser: async (path, firstName, lastName, emailAddress, password) => {
+
+        const response = await axios.post(`${url}${path}`, {
+            firstName: firstName,
+            lastName: lastName,
+            emailAddress: emailAddress,
+            password: password
+        });
+        return await response;
+
+    },
+
  }

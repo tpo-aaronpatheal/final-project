@@ -11,12 +11,11 @@ import SearchResults from './components/SearchResults';
 import MovieDetail from './components/MovieDetail';
 import About from './components/About';
 import Television from './components/TV'
-//import Context from './context';
+
 
 
 function App() {
     
-  //const { value } = useContext(Context);
 
     return (
       <>
